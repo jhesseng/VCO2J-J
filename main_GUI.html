@@ -1,47 +1,51 @@
-<!DOCTYPE html>
-
 <html>
+  <head>
+    <script>
+      var bmr;
+      var age = document.getElementById("age").value;
+      var gender = document.getElementById("gender").value;
+      var height = document.getElementById("height").value;
+      var weight = document.getElementById("weight").value;
 
-<head>
-
-<script>
-
-var bmr;
-var age = document.getElementById("age").value;
-var gender = document.getElementById("gender").value;
-var height = document.getElementById("height").value;
-var weigth = document.getElementById("weigth").value;
-
-if (gender == "masc") {
-bmr = 66.5 + ( 13.75 * weigth ) + ( 5.003 * height ) - ( 6.755 * age )
-}
-else {
-bmr = 655.1 + ( 9.563 * weigth ) + ( 1.850 * height ) - ( 4.676 * age )
-}
-
-</script>
-
-</head>
-
-<body>
-
-<form action="#">
-  <input type="radio" id="gender" value="masc" checked> Male<br>
-  <input type="radio" id="gender" value="fem"> Female<br>
-  Age:<br>
-  <input type="number" id="age" value="20"><br>
-  Height:<br>
-  <input type="number" id="height" value="180"><br>
-  Weight:<br>
-  <input type="number" id="weigth" value="80"><br>
-</form>
-
-<button type="button"
-onclick="document.getElementById('lblResult').innerHTML = bmr">
-Result</button>
-
-<p id="lblResult">BMR</p>
-
-</body>
-
+      if (gender == "male") {
+      bmr = 5 + ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age )
+      }
+      else {
+      bmr = ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age ) - 161
+      }
+    </script>
+  </head>
+  <body>
+    <table style="width:80%">
+      <tr>
+        <th>BMR Calculator</th>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td><input type="radio" name="gender" value="male"> Male
+          <input type="radio" name="gender" value="female"> Female</td>
+      </tr>
+      <tr>
+        <td>Height (cm)</td>
+        <td><input type="number" id="height" name="height"
+                   min="1" max="100"></td>
+      </tr>
+      <tr>
+        <td>Weight (kg)</td>
+        <td><input type="number" id="weight" name="weight"
+                   min="1" max="500"></td>
+      </tr>
+      <tr>
+        <td>Age (years)</td>
+        <td><input type="number" id="age" name="age"
+                   min="1" max="130"></td>
+      </tr>
+      <tr>
+        <td><button type="button"
+        onclick="document.getElementById('lblResult').innerHTML = bmr">
+        Calculate BMR</button></td>
+        <td><p id="lblResult">_____</p>
+      </tr>
+    </table>
+  </body>
 </html>
