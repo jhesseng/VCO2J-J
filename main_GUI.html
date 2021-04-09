@@ -6,12 +6,14 @@
       var gender = document.getElementById("gender").value;
       var height = document.getElementById("height").value;
       var weight = document.getElementById("weight").value;
-
+      
+      function calcBMR(age, gender, height, weight) {
       if (gender == "male") {
       bmr = 5 + ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age )
       }
       else {
       bmr = ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age ) - 161
+      }
       }
     </script>
   </head>
@@ -42,9 +44,9 @@
       </tr>
       <tr>
         <td><button type="button"
-        onclick="document.getElementById('lblResult').innerHTML = bmr">
+        onclick="calcBMR(age, gender, height, weight)">
         Calculate BMR</button></td>
-        <td><p id="lblResult">_____</p><p>kcal/day</p></td>
+        <td><p id="result">_____</p><p>kcal/day</p></td>
       </tr>
     </table>
   </body>
