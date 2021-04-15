@@ -5,52 +5,40 @@
 <body>
 
 <form action="#">
-  <input type="radio" id="gender" name="gender" value="masc" checked> Male<br>
-  <input type="radio" id="gender" name="gender" value="fem"> Female<br>
-  Age:<br>
-  <input type="number" id="age" value="20"><br>
-  Height:<br>
-  <input type="number" id="height" value="180"><br>
-  Weight:<br>
-  <input type="number" id="weigth" value="80"><br>
+  <input type="radio" id="gender" name="gender" value="male" checked> Male<br>
+  <input type="radio" id="gender" name="gender" value="female"> Female<br>
+  Age (years):<br>
+  <input type="number" id="age" min="1" max="120"><br>
+  Height (cm):<br>
+  <input type="number" id="height" min="1" max="220"><br>
+  Weight (kg):<br>
+  <input type="number" id="weight" min="1" max="240"><br>
 </form>
 
 <button type="button"
 onclick="">
-Result</button>
+Calculate BMR</button>
 
-<p id="lblResult">BMR</p>
+<p id="result">BMR</p>
   
-  <script>
-var bmr;
-
-
-    
-function calc() {
-  var age = document.getElementById("age").value;
-  var gender = document.getElementById("gender").value;
-  var height = document.getElementById("height").value;
-  var weigth = document.getElementById("weigth").value;
-  if (gender == "masc") {
-  bmr = 66.5 + ( 13.75 * weigth ) + ( 5.003 * height ) - ( 6.755 * age );
-  }
-  else {
-  bmr = 655.1 + ( 9.563 * weigth ) + ( 1.850 * height ) - ( 4.676 * age );
-  } 
-}
-
-    
-    
-
-document.getElementsByTagName("button")[0].addEventListener("click", function() {
-  calc();
-  document.getElementById('lblResult').innerHTML = bmr;
-
-})
-
- 
-    
-
+<script>
+    var bmr;  
+    function calcBMR() {
+      var age = document.getElementById("age").value;
+      var gender = document.getElementById("gender").value;
+      var height = document.getElementById("height").value;
+      var weight = document.getElementById("weight").value;
+      if (gender == "male") {
+      bmr = ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age ) + 5;
+      }
+      else {
+      bmr = ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age ) - 161;
+      } 
+    }
+    document.getElementsByTagName("button")[0].addEventListener("click", function() {
+      calcBMR();
+      document.getElementById('result').innerHTML = bmr;
+    })
 </script>
  
 </body>
