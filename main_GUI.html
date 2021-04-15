@@ -15,6 +15,11 @@
           bmr = ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age ) - 161
           }
           }
+          
+          document.getElementsByTagName("button")[0].addEventListener("click", function() {
+          calc();
+          document.getElementById('result').innerHTML = bmr;
+          })
         </script>
   </head>
   <body>
@@ -43,13 +48,10 @@
                    min="1" max="120"></td>
       </tr>
       <tr>
-        <td><button
-        onclick="calcBMR(age, gender, height, weight)">
+        <td><button type="button"
+        onclick="">
         Calculate BMR</button></td>
-        <td><p id="result">_____</p>
-          <script>
-            document.getElementById("result").innerHTML = bmr;
-          </script><p>kcal/day</p></td>
+        <td><p id="result">_____</p><p>kcal/day</p></td>
       </tr>
     </table>
   </body>
