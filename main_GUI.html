@@ -2,22 +2,22 @@
   <head>
         <script>
           var bmr;
+          function calcBMR() {
           var age = document.getElementById("age").value;
           var gender = document.getElementById("gender").value;
           var height = document.getElementById("height").value;
           var weight = document.getElementById("weight").value;
           
-          function calcBMR(age, gender, height, weight) {
           if (gender == "male") {
-          bmr = 5 + ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age )
+          bmr = 5 + ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age );
           }
           else {
-          bmr = ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age ) - 161
+          bmr = ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age ) - 161;
           }
           }
           
           document.getElementsByTagName("button")[0].addEventListener("click", function() {
-          calc();
+          calcBMR();
           document.getElementById('result').innerHTML = bmr;
           })
         </script>
