@@ -2,58 +2,56 @@
   <head>
 
   </head>
-  <body>
-    <table style="width:80%">
-      <tr>
-        <th>BMR Calculator</th>
-      </tr>
-      <tr>
-        <td>Gender</td>
-        <td><input type="radio" name="gender" value="male"> Male
-          <input type="radio" name="gender" value="female"> Female</td>
-      </tr>
-      <tr>
-        <td>Height (cm)</td>
-        <td><input type="number" id="height" name="height"
-                   min="1" max="250"></td>
-      </tr>
-      <tr>
-        <td>Weight (kg)</td>
-        <td><input type="number" id="weight" name="weight"
-                   min="1" max="230"></td>
-      </tr>
-      <tr>
-        <td>Age (years)</td>
-        <td><input type="number" id="age" name="age"
-                   min="1" max="120"></td>
-      </tr>
-      <tr>
-        <td><button type="button"
-        onclick="">
-        Calculate BMR</button></td>
-        <td><p id="result">_____</p><p>kcal/day</p></td>
-      </tr>
-    </table>
-            <script>
-          var bmr;
-          function calcBMR() {
-          var age = document.getElementById("age").value;
-          var gender = document.getElementById("gender").value;
-          var height = document.getElementById("height").value;
-          var weight = document.getElementById("weight").value;
-          
-          if (gender == "male") {
-          bmr = 5 + ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age );
-          }
-          else {
-          bmr = ( 10 * weight ) + ( 6.25 * height ) - ( 5 * age ) - 161;
-          }
-          }
-          
-          document.getElementsByTagName("button")[0].addEventListener("click", function() {
-          calcBMR();
-          document.getElementById('result').innerHTML = bmr;
-          })
-        </script>
-  </body>
+<body>
+
+<form action="#">
+  <input type="radio" id="gender" name="gender" value="masc" checked> Male<br>
+  <input type="radio" id="gender" name="gender" value="fem"> Female<br>
+  Age:<br>
+  <input type="number" id="age" value="20"><br>
+  Height:<br>
+  <input type="number" id="height" value="180"><br>
+  Weight:<br>
+  <input type="number" id="weigth" value="80"><br>
+</form>
+
+<button type="button"
+onclick="">
+Result</button>
+
+<p id="lblResult">BMR</p>
+  
+  <script>
+var bmr;
+
+
+    
+function calc() {
+  var age = document.getElementById("age").value;
+  var gender = document.getElementById("gender").value;
+  var height = document.getElementById("height").value;
+  var weigth = document.getElementById("weigth").value;
+  if (gender == "masc") {
+  bmr = 66.5 + ( 13.75 * weigth ) + ( 5.003 * height ) - ( 6.755 * age );
+  }
+  else {
+  bmr = 655.1 + ( 9.563 * weigth ) + ( 1.850 * height ) - ( 4.676 * age );
+  } 
+}
+
+    
+    
+
+document.getElementsByTagName("button")[0].addEventListener("click", function() {
+  calc();
+  document.getElementById('lblResult').innerHTML = bmr;
+
+})
+
+ 
+    
+
+</script>
+ 
+</body>
 </html>
