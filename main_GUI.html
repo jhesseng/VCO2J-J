@@ -126,7 +126,6 @@ g.updateOptions( { dateWindow : [date_win_min, date_win_max] } );
 };
 
   var avgsum = 0;
-  int[] avgvolt = {0,0,0,0,0,0,0,0,0,0}
   for (int i = 1; i < 10; i++) {
     avgvolt[i] = avgvolt[i+1];
   }
@@ -135,8 +134,8 @@ g.updateOptions( { dateWindow : [date_win_min, date_win_max] } );
     avgsum += avgvolt[i];
   }
   
-  
-data.push([x, avgsum/10]);
+  var y = avgsum/10;
+data.push([x, y]);
 
 if ((data.length&15)==15) g.updateOptions( { 'file': data } );
 
