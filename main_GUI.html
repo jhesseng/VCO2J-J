@@ -20,11 +20,11 @@
 
 <script type="text/javascript">
 
+var avgvol = [0,0,0,0,0,0,0,0,0,0];
+  
 $(document).ready(function () {
 
 var data = [];
-  
-var avgvol = [0,0,0,0,0,0,0,0,0,0];
 
 var rec_flag = false;
 
@@ -70,7 +70,7 @@ showRangeSelector: true
 });
 
 
-function onLine(v, avgvol) {
+function onLine(v) {
 
 if(rec_flag) {
 
@@ -88,22 +88,22 @@ g.updateOptions( { dateWindow : [date_win_min, date_win_max] } );
 
 };
 
-var avgsum = 0;
-for (int i = 1; i < 10; i++) {
-  avgvol[i] = avgvol[i+1];
-};
-avgvol[10] = y;
-for (int i = 1; i <= 10; i++) {
-  avgsum += avgvol[i];
-};
+//var avgsum = 0;
+//for (int i = 1; i < 10; i++) {
+//  avgvol[i] = avgvol[i+1];
+//};
+//avgvol[10] = y;
+//for (int i = 1; i <= 10; i++) {
+//  avgsum += avgvol[i];
+//};
 
-var y = avgsum/10;
+//var y = avgsum/10;
   
 data.push([x, y]);
 
 g.updateOptions( { 'file': data } );
   
-return avgvol;
+//return avgvol;
 
 };
 
@@ -126,7 +126,7 @@ connection.write("clearInterval(1)\n", function() { });
 
 data.splice(0,data.length);
 
-connection.write("setInterval(function(){Bluetooth.println(getvoltage().toFixed(3));},100); \n", function() { });
+connection.write("setInterval(function(){Bluetooth.println(getvoltage().toFixed(3));},50); \n", function() { });
 
 t = new Date();
 
