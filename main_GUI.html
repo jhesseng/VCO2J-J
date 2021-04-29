@@ -19,10 +19,10 @@
 <div id="div_g" style="width:1200px; height:600px;"></div>
 
 <script type="text/javascript">
-
-var avgvol = [0,0,0,0,0,0,0,0,0,0];
   
 $(document).ready(function () {
+  
+window.avgvol = [0,0,0,0,0,0,0,0,0,0];
 
 var data = [];
 
@@ -126,7 +126,7 @@ connection.write("clearInterval(1)\n", function() { });
 
 data.splice(0,data.length);
 
-connection.write("setInterval(function(){Bluetooth.println(getvoltage(avgvol).toFixed(3));},50); \n", function() { });
+connection.write("setInterval(function(){Bluetooth.println(getvoltage().toFixed(3));},50); \n", function() { });
 
 t = new Date();
 
